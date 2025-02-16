@@ -1,0 +1,56 @@
+﻿@page "/superheroes/home"
+@inject HttpClient _http
+@using BlazorPagination.Client.ViewModels;
+@rendermode InteractiveWebAssembly
+
+<MudContainer Class="d-flex ma-4">
+    @foreach (var item in allHeroes)
+    {
+        <MudCard width="250px;" Class="mr-2">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Secondary">@item.Id</MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Type="Type.body1">@item.Name</MudText>
+                </CardHeaderContent>
+            
+            </MudCardHeader>
+            <MudCardMedia Image="@(item.ImageUrl)" height="250" />
+            <MudCardContent>
+                <MudText Type="Type.body2">@item.Franchise</MudText>
+                <MudText Type="Type.body2">@item.Gender</MudText>
+            </MudCardContent>
+        
+        </MudCard>
+    }
+</MudContainer>
+
+
+
+
+
+@code {
+    private List<SuperHeroesVm> allHeroes = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetAllSuperHeroesAsync();
+    }
+
+    private async Task GetAllSuperHeroesAsync()
+    {
+        try
+        {
+            allHeroes = await _http.GetFromJsonAsync<List<SuperHeroesVm>>("api/SuperHeroes")?? new List<SuperHeroesVm>();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching superheroes: {ex.Message}");
+        }
+    } 
+
+}
+
+
+    

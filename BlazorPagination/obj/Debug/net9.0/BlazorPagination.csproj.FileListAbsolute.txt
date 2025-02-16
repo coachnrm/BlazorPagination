@@ -237,3 +237,4 @@ C:\Users\User\Desktop\BlazorPagination\BlazorPagination\bin\Debug\net9.0\Swashbu
 C:\Users\User\Desktop\BlazorPagination\BlazorPagination\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\User\Desktop\BlazorPagination\BlazorPagination\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\User\Desktop\BlazorPagination\BlazorPagination\obj\Debug\net9.0\BlazorPagination.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\User\Desktop\BlazorPagination\BlazorPagination\obj\Debug\net9.0\BlazorPagination.sourcelink.json

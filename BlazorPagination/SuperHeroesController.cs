@@ -1,4 +1,5 @@
 using System;
+using BlazorPagination.Models;
 using BlazorPagination.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,5 +20,12 @@ public class SuperHeroesController : ControllerBase
     {
         var results = await _superHeroesService.GetSuperHeroesAsync();
         return Ok(results);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> PostAsync(SuperHero newSuperHeroes)
+    {
+        var result = await _superHeroesService.CreateSuperHeroesAsync(newSuperHeroes);
+        return Ok(result);
     }
 }
