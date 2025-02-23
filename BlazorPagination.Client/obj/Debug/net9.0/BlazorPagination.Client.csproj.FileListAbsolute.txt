@@ -1042,10 +1042,10 @@ C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\obj\Debug\net9.0\
 C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\obj\Debug\net9.0\compressed\bovu1egxnx-o4jp2hcm79.gz
 C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\obj\Debug\net9.0\compressed\mp3xolzygv-48fc1p6rs2.gz
 C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\obj\Debug\net9.0\BlazorPagination.Client.sourcelink.json
-C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\bin\Debug\net9.0\wwwroot\_framework\BlazorPagination.Client.jwsdei1zre.pdb
-C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\bin\Debug\net9.0\wwwroot\_framework\BlazorPagination.Client.bk1zy3fh3y.wasm
-C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\bin\Debug\net9.0\wwwroot\_framework\BlazorPagination.Client.bk1zy3fh3y.wasm.gz
-C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\bin\Debug\net9.0\wwwroot\_framework\BlazorPagination.Client.jwsdei1zre.pdb.gz
-C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\obj\Debug\net9.0\compressed\3u6vaa6jek-bk1zy3fh3y.gz
-C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\obj\Debug\net9.0\compressed\8g9fcerv3m-jwsdei1zre.gz
-C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\obj\Debug\net9.0\compressed\56y3b173sw-xi5qmv32lc.gz
+C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\bin\Debug\net9.0\wwwroot\_framework\BlazorPagination.Client.3oqi2avdb3.pdb
+C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\bin\Debug\net9.0\wwwroot\_framework\BlazorPagination.Client.t10bsx2glb.wasm
+C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\bin\Debug\net9.0\wwwroot\_framework\BlazorPagination.Client.t10bsx2glb.wasm.gz
+C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\bin\Debug\net9.0\wwwroot\_framework\BlazorPagination.Client.3oqi2avdb3.pdb.gz
+C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\obj\Debug\net9.0\compressed\3u6vaa6jek-t10bsx2glb.gz
+C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\obj\Debug\net9.0\compressed\8g9fcerv3m-3oqi2avdb3.gz
+C:\Users\User\Desktop\BlazorPagination\BlazorPagination.Client\obj\Debug\net9.0\compressed\56y3b173sw-tymefsuq8i.gz

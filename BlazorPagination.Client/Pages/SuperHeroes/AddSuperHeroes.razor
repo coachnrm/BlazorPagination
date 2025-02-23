@@ -1,17 +1,23 @@
 ﻿
 @page "/superheroes/add"
 @using BlazorPagination.Client.ViewModels;
+@inject HttpClient _http
+@inject NavigationManager _navigationManager
 @rendermode InteractiveWebAssembly
 
-
-<EditForm Model="@superHeroesFormModel">
-    <MudCard>
+<div class="d-flex justify-center mt-6">
+    <EditForm Model="@superHeroesFormModel" OnSubmit="CreateSuperHeroAsync">
+       <MudCard Class="d-flex justify-center" Width="800px">
         <MudCardContent>
-            <MudTextField Label="Name" 
+            <MudTextField Label="Name" Class="mt-2"
                           @bind-Value="superHeroesFormModel.Name" For="@(() => superHeroesFormModel.Name)" />
-            <MudTextField Label="ImageUrl" 
+            <MudTextField Label="ImageUrl" Class="mt-2" 
                           @bind-Value="superHeroesFormModel.ImageUrl" For="@(() => superHeroesFormModel.ImageUrl)" />  
-            <MudForm>
+            <MudSelect Class="mt-2" Margin="Margin.Dense" T="string" Label="Franchise" Variant="Variant.Text" @bind-Value="superHeroesFormModel.Franchise">
+                    <MudSelectItem Value="@("dc")" >DC</MudSelectItem>
+                    <MudSelectItem Value="@("marvel")" >Marvel</MudSelectItem>
+                </MudSelect>
+            <MudForm Class="mt-2">
                 <MudRadioGroup @bind-Value="superHeroesFormModel.Franchise">
                     <MudRadio Value="@("dc")" Color="Color.Primary">DC</MudRadio>
                     <MudRadio Value="@("marvel")" Color="Color.Secondary">Marvel</MudRadio>
@@ -24,15 +30,24 @@
                     <MudRadio Value="@("others")" Color="Color.Primary">Others</MudRadio>
                 </MudRadioGroup>
             </MudForm>
+             <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary" Class="mt-2">Add</MudButton>
+        </MudCardContent>
+        <MudCardContent>
+            <div class="d-flex justify-center">
+                <MudImage ObjectFit="ObjectFit.Cover" Height="200" Width="250" Src="@superHeroesFormModel.ImageUrl" Alt="Orebro Slott" Elevation="25" Class="rounded-lg" />
+            </div>
         </MudCardContent>
     </MudCard>
-</EditForm>
+    </EditForm>
+</div>
+
 
 @code {
     SuperHeroesVm superHeroesFormModel = new SuperHeroesVm();
 
-    private string[] _frenchises = 
+    private async Task CreateSuperHeroAsync()
     {
-        "dc", "marvel"
-    };
+        await _http.PostAsJsonAsync<SuperHeroesVm>("/api/SuperHeroes", superHeroesFormModel);
+        _navigationManager.NavigateTo("/superheroes/home");
+    }
 }

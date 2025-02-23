@@ -1,12 +1,17 @@
 ﻿@page "/superheroes/home"
 @inject HttpClient _http
+@inject NavigationManager _navigationManager
 @using BlazorPagination.Client.ViewModels;
 @rendermode InteractiveWebAssembly
 
 <MudContainer Class="d-flex ma-4">
-    @foreach (var item in allHeroes)
+    <div class="d-flex ma-2 justify-center">
+        <MudFab Color="Color.Primary" Label="Add" @onclick="@(() => { _navigationManager.NavigateTo("/superheroes/add"); })"/>
+    </div>
+    <div class="d-flex flex-wrap justify-center">
+        @foreach (var item in allHeroes)
     {
-        <MudCard width="250px;" Class="mr-2">
+        <MudCard width="250px;" Class="ma-2">
             <MudCardHeader>
                 <CardHeaderAvatar>
                     <MudAvatar Color="Color.Secondary">@item.Id</MudAvatar>
@@ -24,6 +29,8 @@
         
         </MudCard>
     }
+    </div>
+    
 </MudContainer>
 
 
