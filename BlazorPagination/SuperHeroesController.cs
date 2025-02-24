@@ -1,4 +1,5 @@
 using System;
+using BlazorPagination.Dtos;
 using BlazorPagination.Models;
 using BlazorPagination.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -16,9 +17,9 @@ public class SuperHeroesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAsync()
+    public async Task<IActionResult> GetAsync([FromQuery]SuperHeroesFilterDto superHeroesFilter)
     {
-        var results = await _superHeroesService.GetSuperHeroesAsync();
+        var results = await _superHeroesService.GetSuperHeroesAsync(superHeroesFilter);
         return Ok(results);
     }
 
@@ -40,6 +41,13 @@ public class SuperHeroesController : ControllerBase
     public async Task<IActionResult> PutAsync(SuperHero updateSuperHero)
     {
         var result = await _superHeroesService.UpdateSuperHeroesAsync(updateSuperHero);
+        return Ok(result);
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> DeleteAsync(int id)
+    {
+        var result = await _superHeroesService.DeleteSuperHeroesAsync(id);
         return Ok(result);
     }
 }

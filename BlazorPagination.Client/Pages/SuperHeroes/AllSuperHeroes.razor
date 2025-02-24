@@ -2,6 +2,7 @@
 @inject HttpClient _http
 @inject NavigationManager _navigationManager
 @using BlazorPagination.Client.ViewModels;
+@inject IDialogService _dialogService;
 @rendermode InteractiveWebAssembly
 
 <MudContainer Class="d-flex ma-4">
@@ -26,7 +27,10 @@
                 <MudText Type="Type.body2">@item.Franchise</MudText>
                 <MudText Type="Type.body2">@item.Gender</MudText>
             </MudCardContent>
-        
+            <MudCardActions>
+                <MudIcon Icon="@Icons.Material.Filled.Edit" Title="Edit" @onclick="@(() => { _navigationManager.NavigateTo("/superheroes/edit/{item.Id}"); })" />
+                <MudIcon Icon="@Icons.Material.Filled.Delete" Title="Delete" Color="Color.Error" @onclick="@(() => { DeleteSuperHeroAsync(item.Id); })" />
+            </MudCardActions>
         </MudCard>
     }
     </div>
@@ -56,6 +60,20 @@
             Console.WriteLine($"Error fetching superheroes: {ex.Message}");
         }
     } 
+
+    private async Task DeleteSuperHeroAsync(int id)
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("Id", id);
+        var dialog = await _dialogService.ShowAsync<SuperHeroDeletepopup>("Delete Confirmation", parameters);
+
+        var result = await dialog.Result;
+        if (!result.Canceled)
+        {
+            allHeroes = allHeroes.Where(_ => _.Id != id).ToList();
+            StateHasChanged();
+        }
+    }
 
 }
 

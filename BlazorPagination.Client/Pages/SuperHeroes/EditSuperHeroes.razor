@@ -48,6 +48,13 @@
 
 @code {
     SuperHeroesVm superHeroesFormModel = new SuperHeroesVm();
+    [Parameter]
+    public int Id {get; set;}
+
+    protected override async Task OnInitializedAsync()
+    {
+        superHeroesFormModel = await _http.GetFromJsonAsync<SuperHeroesVm>($"/api/SuperHeroes/{Id}");
+    }
 
     private async Task UpdateSuperHeroAsync()
     {
