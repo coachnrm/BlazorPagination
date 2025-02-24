@@ -28,4 +28,18 @@ public class SuperHeroesController : ControllerBase
         var result = await _superHeroesService.CreateSuperHeroesAsync(newSuperHeroes);
         return Ok(result);
     }
+
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult> GetAsync(int id)
+    {
+        var result = await _superHeroesService.GetSuperHeroById(id);
+        return Ok(result);
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> PutAsync(SuperHero updateSuperHero)
+    {
+        var result = await _superHeroesService.UpdateSuperHeroesAsync(updateSuperHero);
+        return Ok(result);
+    }
 }

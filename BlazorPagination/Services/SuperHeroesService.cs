@@ -19,8 +19,20 @@ public class SuperHeroesService : ISuperHeroesService
         return newSuperHeroes;
     }
 
+    public async Task<SuperHero> GetSuperHeroById(int id)
+    {
+        return await _userContext.SuperHeroes.FirstOrDefaultAsync(_ => _.Id == id);
+    }
+
     public Task<List<SuperHero>> GetSuperHeroesAsync()
     {
         return _userContext.SuperHeroes.ToListAsync();
+    }
+
+    public async Task<SuperHero> UpdateSuperHeroesAsync(SuperHero updateSuperHeroes)
+    {
+        _userContext.SuperHeroes.Update(updateSuperHeroes);
+        await _userContext.SaveChangesAsync();
+        return updateSuperHeroes;
     }
 }

@@ -1,4 +1,4 @@
-﻿@page "/superheroes/edit"
+﻿@page "/superheroes/edit/{id:int}"
 @using BlazorPagination.Client.ViewModels;
 @inject HttpClient _http
 @inject NavigationManager _navigationManager
@@ -6,11 +6,11 @@
 
 <div class="d-flex justify-center mt-6">
     <MudChip T="string" Color="Color.Primary">
-        <h3> Add A Super Hero</h3>
+        <h3> Update A Super Hero</h3>
     </MudChip>
 </div>
 <div class="d-flex justify-center mt-6">
-    <EditForm Model="@superHeroesFormModel" OnSubmit="CreateSuperHeroAsync">
+    <EditForm Model="@superHeroesFormModel" OnSubmit="UpdateSuperHeroAsync">
        <MudCard Class="d-flex justify-center" Width="800px">
         <MudCardContent>
             <MudTextField Label="Name" Class="mt-2"
@@ -34,7 +34,7 @@
                     <MudRadio Value="@("others")" Color="Color.Primary">Others</MudRadio>
                 </MudRadioGroup>
             </MudForm>
-             <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary" Class="mt-2">Add</MudButton>
+             <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary" Class="mt-2">Update</MudButton>
         </MudCardContent>
         <MudCardContent>
             <div class="d-flex justify-center">
@@ -49,9 +49,9 @@
 @code {
     SuperHeroesVm superHeroesFormModel = new SuperHeroesVm();
 
-    private async Task CreateSuperHeroAsync()
+    private async Task UpdateSuperHeroAsync()
     {
-        await _http.PostAsJsonAsync<SuperHeroesVm>("/api/SuperHeroes", superHeroesFormModel);
+        await _http.PutAsJsonAsync<SuperHeroesVm>("/api/SuperHeroes", superHeroesFormModel);
         _navigationManager.NavigateTo("/superheroes/home");
     }
 }
